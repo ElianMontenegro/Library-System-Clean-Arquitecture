@@ -1,5 +1,4 @@
-
-export class IAddBook{
+export interface IAddBook{
     execute: (params : IAddBook.Params) => Promise<boolean>
 }
 
@@ -11,6 +10,7 @@ export namespace IAddBook {
         year?: string,
         category_id: string,
         price_book: number,
-        rentPrice?: number
+        rentPrice?: number,
+        amount?: number
     }
 }
