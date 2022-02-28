@@ -1,7 +1,7 @@
 import { FindBooksByIdsRepository } from "src/data/protocols/db/book/findBooksByIdsRepository";
-import { FindReaderByIdRepository } from "src/data/protocols/db/reader/findReaderByIdRepository";
+import { FindReaderByIdRepository } from "src/data/protocols/db/reader/find-reader-by-id-repository";
 import { IRent } from "src/domain/use-cases/rental/i-rent";
-
+import { RentalEntenty } from "../../../../src/domain/entities/rental";
 
 export class Rent implements IRent{
     constructor(
@@ -18,28 +18,15 @@ export class Rent implements IRent{
             return null
         }
 
-        const totalPrice = (book : any[]) => {
+        const CalculateTotalPrice = (book : any[]): number => {
             let total = 0
             for (const iterator of book) {
                 total = total + iterator.rentPrice
             }
             return total
         }
-
-        const finalDate = () => {
-            const DAYS = 30;
-            const date = new Date()
-            date.setDate(date.getDate() + DAYS)
-            return date
-        }
-
-        const orderRent = {
-            books : books,
-            reader : reader,
-            date : new Date(),
-            totalPrice : totalPrice(books),
-            finalDate : finalDate()
-        }
+        const totalPrice = CalculateTotalPrice(books);
+        const orderRent = new RentalEntenty({books, reader, totalPrice});
 
         return orderRent
     }
