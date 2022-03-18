@@ -10,4 +10,6 @@ COPY . .
 
 RUN yarn install
 
+RUN yarn global add nodemon
+
 ENTRYPOINT ["yarn", "dev"]

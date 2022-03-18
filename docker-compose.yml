@@ -11,6 +11,8 @@ services:
       - "3000:3000"
     depends_on:
       - postgres
+    links:
+      - postgres
     volumes:
       - ./src:/usr/src/app/src
     networks:
@@ -37,6 +39,8 @@ services:
       - admin_data:/var/lib/pgadmin
     env_file:
       - .env
+    networks:
+      - default
 
 volumes:
   db_data:
@@ -44,5 +48,5 @@ volumes:
 
 networks:
   default:
-    name: epick-net
+    name: library-net
     driver: bridge
