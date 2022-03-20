@@ -1,3 +1,3 @@
-export interface ICreateBook{
+export interface ICreateCategory{
     execute: (name : string) => Promise<boolean>
 }

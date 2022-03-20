@@ -1,9 +1,8 @@
-import { CreateCategoryRepository } from 'src/data/protocols/db/category/create-category-repository'
-import { ICreateBook } from 'src/domain/use-cases/category/i-create-category'
+import { ICreateCategory } from 'src/domain/use-cases/category/i-create-category'
 import { CategoryPostgresRepository } from 'src/infra/db/postgres/category-postgres-repository'
 
 
-export class CreateCategory implements ICreateBook {
+export class CreateCategory implements ICreateCategory {
     constructor(
         private categoryPostgresRepository : CategoryPostgresRepository
     ){}
