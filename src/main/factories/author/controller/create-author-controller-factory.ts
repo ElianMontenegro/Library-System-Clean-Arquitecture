@@ -1,4 +1,4 @@
-import { CreateAuthorController } from "../../../../../src/presentation/controllers/create-author-controller"
+import { CreateAuthorController } from "../../../../presentation/controllers/author/create-author-controller"
 import { makeCreateAuthorUseCases } from "../use-cases/create-author-use-case-factory"
 
 export const makeCreateAuthorController = (): CreateAuthorController => {
