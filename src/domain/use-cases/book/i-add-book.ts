@@ -6,9 +6,9 @@ export namespace IAddBook {
     export type Params = {
         title: string, 
         page_number?: number, 
-        autor?: string, 
+        id_autor?: number, 
         year?: string,
-        category_id: string,
+        id_category: number,
         price_book: number,
         rentPrice?: number,
         amount?: number

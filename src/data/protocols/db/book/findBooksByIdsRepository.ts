@@ -1,4 +1,4 @@
 
-export interface FindBooksByIdsRepository {
-    execute: (ids : string[]) => Promise<any> 
+export interface GetBooksByIdsRepository {
+    getBooksByIdsRepository: (ids : string[]) => Promise<any> 
 }

@@ -3,10 +3,10 @@ export class BookEntity {
     private rentPrice : number;
     constructor(
         private title: string, 
-        private category_id: string,
+        private id_category: number,
         private price_book: number,
         private page_number?: number,
-        private autor?: string,
+        private id_autor?: number,
         private year?: string,
         private amount?: number
     ){}
@@ -22,10 +22,10 @@ export class BookEntity {
     public getAll() {
         return {
             title : this.title,
-            category_id: this.category_id,
+            id_category: this.id_category,
             price_book: this.price_book,
             page_number: this.page_number,
-            autor: this.autor,
+            id_autor: this.id_autor,
             year: this.year,
             rentPrice : this.rentPrice,
             amount : this.amount

@@ -3,7 +3,8 @@ import { dbInstance } from './pg-connect'
 import { 
   CreateCategoryRepository,
   GetAllCategoryRepository,
-  GetCategoryByName
+  GetCategoryByName,
+  GetCategoryById
 } 
 from '../../../../src/data/protocols/db/category'
 
@@ -11,7 +12,8 @@ from '../../../../src/data/protocols/db/category'
 export class CategoryPostgresRepository implements 
 CreateCategoryRepository, 
 GetAllCategoryRepository, 
-GetCategoryByName{
+GetCategoryByName,
+GetCategoryById{
     instance : any
     makeConnection = () => {
         try {
@@ -65,5 +67,20 @@ GetCategoryByName{
           } catch (err) {
             console.log(err.stack)
           }
+    }
+
+    async getCategoryById(id: number): Promise<any>{
+      const text = `SELECT * FROM public.category WHERE category.id = '${id}'`
+      try {
+        const res = await this.makeConnection().query(text)
+        const category = res.rows[0];
+        if(category){
+          return category
+        }
+        return null
+      } catch (err) {
+        console.log(err.stack)
+        return false
+      }
     }
 }
