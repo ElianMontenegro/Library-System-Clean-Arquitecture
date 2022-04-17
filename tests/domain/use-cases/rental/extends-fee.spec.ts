@@ -15,7 +15,7 @@ const makeSut = () => {
 
 
 describe('extends fee use case', () => {
-    it('Should ', async () => {
+    it.skip('Should ', async () => {
         const { sut } = makeSut()
         await sut.execute()
     })

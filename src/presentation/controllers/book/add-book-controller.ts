@@ -1,4 +1,4 @@
-import { CreateBook } from "src/data/use-cases/book/add-book";
+import { CreateBook } from "src/data/use-cases/book/create-book";
 import { DataInUseError, MissingParamError } from "../../errors";
 import { badRequest, ok, serverError } from "../../helpers/http-status";
 import { IController } from "src/presentation/protocols/controller-interface";

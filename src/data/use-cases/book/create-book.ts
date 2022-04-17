@@ -16,11 +16,11 @@ export class CreateBook implements IAddBook {
         const AllPromise = await Promise.all([author, category])
         .then(values => {
             for (const iterator of values) {
-                if(!iterator){
+                if(iterator == null){
                     return false
                 }
-                return true
             }
+            return true
         })
         .catch((err) => {
             console.log(err);

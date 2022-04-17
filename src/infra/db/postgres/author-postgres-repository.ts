@@ -78,7 +78,6 @@ GetAuthorById{
         }
         return false
       } catch (err) {
-        console.log(err.stack)
         return false
       }
     }
